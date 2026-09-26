@@ -1,0 +1,18 @@
+[
+  {
+    "product": "Notion",
+    "title": "Notion 3.7: Agent skills for your whole team",
+    "date": "September 15, 2026",
+    "source": "https://www.notion.com/releases",
+    "description": "You know how some people are really good at prompting AI? Or they’ve figured out the best way to handle repetitive work? Now they can turn that know-how into a skill and level up the whole team. Skills are reusable instructions that teach AI how your team works. Like generating a monthly business review in your team’s format. Or critiquing your doc in the same way your boss would. They’re like team shortcuts for getting repetitive tasks done. Create a skill → Chat with Notion Agent to create a skill from scratch: Review this feature proposal using our product, design, and engineering standards. Create a new-hire setup checklist using our device and app policies. Draft this job description using our leveling framework and approved language. Not sure where to start? Notion can also suggest skills based on the work you already do. What skills do I need? → Type / in a Notion Agent chat and choose the skill you want to use. Add any other context, then hit Enter . Take your skills with you, no matter what agent you use. Create and update the skill in Notion, then download it to Claude Code, Codex, Cursor, Gemini, or Grok . Bring more of your work into Notion Agent. Just ask it to connect a tool, and it walks you through the setup. You can now connect GitHub, Amplitude, and other tools with the Custom MCP connection so you can grab context, check performance, or take action in the tools your team already uses. Connect to GitHub →",
+    "detected_at": "2026-09-26 15:11:36"
+  },
+  {
+    "product": "Figma",
+    "title": "Vertical wrap available in auto layout",
+    "date": "Sep 25, 2026",
+    "source": "https://www.figma.com/release-notes/",
+    "description": "Vertical wrap is now available when auto layout is set to vertical flow. Build multi-column layouts that stay responsive as content is added, removed, or adjusted. Overflow content wraps into a new column instead of extending past the frame. This matches CSS flexbox behavior, bringing auto layout closer to CSS.",
+    "detected_at": "2026-09-26 15:30:00"
+  }
+]
