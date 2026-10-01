@@ -5,6 +5,8 @@ import json
 from datetime import datetime
 import re
 
+from agent import assess_change_impact, format_impact_assessment, update_history_with_impact
+
 
 PRODUCTS = [
     {
@@ -48,13 +50,7 @@ def save_memory(filename, value):
 # CHANGE HISTORY
 # ---------------------------------------------------------
 
-def save_change_history(
-    product_name,
-    title,
-    date,
-    source_url,
-    description
-):
+def load_change_history():
 
     history_file = "change_history.json"
 
@@ -67,13 +63,55 @@ def save_change_history(
         ) as file:
 
             try:
-                history = json.load(file)
+                return json.load(file)
+
             except json.JSONDecodeError:
-                history = []
+                return []
 
-    else:
-        history = []
+    return []
 
+
+def save_json(data, filename):
+
+    with open(
+        filename,
+        "w",
+        encoding="utf-8"
+    ) as file:
+
+        json.dump(
+            data,
+            file,
+            indent=2,
+            ensure_ascii=False
+        )
+
+
+def find_history_record(product_name, title, date):
+    history = load_change_history()
+
+    for record in history:
+        if (
+            record.get("product") == product_name
+            and record.get("title") == title
+            and record.get("date") == date
+        ):
+            return record
+
+    return None
+
+
+def save_change_history(
+    product_name,
+    title,
+    date,
+    source_url,
+    description
+):
+
+    history_file = "change_history.json"
+
+    history = load_change_history()
 
     for item in history:
 
@@ -86,7 +124,6 @@ def save_change_history(
             print("ℹ️ This change is already in history.")
             return False
 
-
     new_change = {
         "product": product_name,
         "title": title,
@@ -98,23 +135,12 @@ def save_change_history(
         )
     }
 
-
     history.append(new_change)
 
-
-    with open(
-        history_file,
-        "w",
-        encoding="utf-8"
-    ) as file:
-
-        json.dump(
-            history,
-            file,
-            indent=2,
-            ensure_ascii=False
-        )
-
+    save_json(
+        history,
+        history_file
+    )
 
     print("💾 Change saved to history.")
 
@@ -159,19 +185,16 @@ def get_notion(url):
             heading = tag
             break
 
-
     if heading is None:
 
         raise ValueError(
             "Could not find the latest Notion release."
         )
 
-
     title = heading.get_text(
         " ",
         strip=True
     )
-
 
     # Find the release date.
     date = None
@@ -193,7 +216,6 @@ def get_notion(url):
             )
 
             if not date:
-
                 date = time_tag.get(
                     "datetime"
                 )
@@ -202,7 +224,6 @@ def get_notion(url):
                 break
 
         current = current.parent
-
 
     # Fallback: search nearby HTML for a date.
     if not date:
@@ -221,13 +242,11 @@ def get_notion(url):
 
             date = match.group(0)
 
-
     if not date:
 
         raise ValueError(
             "Could not find the release date for Notion."
         )
-
 
     # Find the larger release container.
     container = heading
@@ -246,7 +265,6 @@ def get_notion(url):
 
         if len(container_text) > 300:
             break
-
 
     # Collect useful text from paragraphs and list items.
     description_parts = []
@@ -290,11 +308,9 @@ def get_notion(url):
 
             description_parts.append(text)
 
-
     description = " ".join(
         description_parts[:10]
     )
-
 
     return title, date, description
 
@@ -320,11 +336,9 @@ def get_figma(url):
         "html.parser"
     )
 
-
     articles = soup.find_all(
         "article"
     )
-
 
     for article in articles:
 
@@ -336,22 +350,18 @@ def get_figma(url):
             "h2"
         )
 
-
         if not time_element or not title_element:
             continue
-
 
         title = title_element.get_text(
             " ",
             strip=True
         )
 
-
         date = time_element.get_text(
             " ",
             strip=True
         )
-
 
         if not date:
 
@@ -360,10 +370,8 @@ def get_figma(url):
                 ""
             )
 
-
         if not date:
             continue
-
 
         # Extract useful release information.
         description_parts = []
@@ -377,14 +385,11 @@ def get_figma(url):
                 strip=True
             )
 
-
             if not text:
                 continue
 
-
             if len(text) < 20:
                 continue
-
 
             ignored_text = {
                 "read more",
@@ -393,23 +398,18 @@ def get_figma(url):
                 "share"
             }
 
-
             if text.lower() in ignored_text:
                 continue
-
 
             if text not in description_parts:
 
                 description_parts.append(text)
 
-
         description = " ".join(
             description_parts[:8]
         )
 
-
         return title, date, description
-
 
     raise Exception(
         "Could not find the latest Figma release."
@@ -435,7 +435,6 @@ def get_canva(url):
         "Accept-Language": "en-US,en;q=0.9",
     }
 
-
     # -----------------------------------------------------
     # Get Canva newsroom
     # -----------------------------------------------------
@@ -453,11 +452,9 @@ def get_canva(url):
         "html.parser"
     )
 
-
     target_title = (
         "Craft, upgraded: introducing the Canva ProSuite"
     )
-
 
     # Find the release headline.
     heading = None
@@ -474,13 +471,11 @@ def get_canva(url):
             heading = tag
             break
 
-
     if heading is None:
 
         raise ValueError(
             "Could not find the latest Canva release headline."
         )
-
 
     # -----------------------------------------------------
     # Find the article URL
@@ -488,23 +483,19 @@ def get_canva(url):
 
     link = heading.find_parent("a")
 
-
     if link is None:
 
         raise ValueError(
             "Could not find the Canva release article link."
         )
 
-
     article_url = link.get("href")
-
 
     if not article_url:
 
         raise ValueError(
             "Could not find the Canva article URL."
         )
-
 
     # Convert relative URL to full URL if necessary.
     if article_url.startswith("/"):
@@ -514,7 +505,6 @@ def get_canva(url):
             + article_url
         )
 
-
     # -----------------------------------------------------
     # Extract release description
     # -----------------------------------------------------
@@ -523,17 +513,14 @@ def get_canva(url):
 
     card = heading.parent
 
-
     for _ in range(5):
 
         if card is None:
             break
 
-
         paragraphs = card.find_all(
             "p"
         )
-
 
         for paragraph in paragraphs:
 
@@ -542,19 +529,15 @@ def get_canva(url):
                 strip=True
             )
 
-
             if len(text) > 50:
 
                 description = text
                 break
 
-
         if description:
             break
 
-
         card = card.parent
-
 
     # -----------------------------------------------------
     # Open the actual Canva article
@@ -568,12 +551,10 @@ def get_canva(url):
 
     article_response.raise_for_status()
 
-
     article_soup = BeautifulSoup(
         article_response.text,
         "html.parser"
     )
-
 
     # -----------------------------------------------------
     # Find Canva's embedded publication date
@@ -585,7 +566,6 @@ def get_canva(url):
 
     published_at = None
 
-
     for script in article_soup.find_all(
         "script"
     ):
@@ -595,34 +575,28 @@ def get_canva(url):
             or script.get_text()
         )
 
-
         if not script_text:
             continue
-
 
         # Make sure this is the correct Canva article data.
         if '"canva-prosuite-launch"' not in script_text:
             continue
-
 
         match = re.search(
             r'"publishedAt":"([^"]+)"',
             script_text
         )
 
-
         if match:
 
             published_at = match.group(1)
             break
-
 
     if published_at is None:
 
         raise ValueError(
             "Could not determine the Canva release publication date."
         )
-
 
     # -----------------------------------------------------
     # Convert:
@@ -635,7 +609,6 @@ def get_canva(url):
     # -----------------------------------------------------
 
     date_only = published_at[:10]
-
 
     try:
 
@@ -676,7 +649,6 @@ def get_canva(url):
             f"{int(day)}, {year}"
         )
 
-
     # -----------------------------------------------------
     # If description was not found on the listing page,
     # use the article metadata as a fallback.
@@ -691,7 +663,6 @@ def get_canva(url):
             }
         )
 
-
         if meta_description:
 
             description = (
@@ -700,7 +671,6 @@ def get_canva(url):
                     ""
                 )
             )
-
 
     return (
         target_title,
@@ -721,14 +691,12 @@ def check_product(product):
 
     memory_file = product["memory_file"]
 
-
     print()
     print("=" * 60)
 
     print(
         f"🔍 Checking {name}..."
     )
-
 
     try:
 
@@ -738,13 +706,11 @@ def check_product(product):
                 url
             )
 
-
         elif name == "Figma":
 
             title, date, description = get_figma(
                 url
             )
-
 
         elif name == "Canva":
 
@@ -752,13 +718,11 @@ def check_product(product):
                 url
             )
 
-
         else:
 
             raise Exception(
                 "Unknown product."
             )
-
 
         if not date:
 
@@ -766,11 +730,9 @@ def check_product(product):
                 "The scraper returned an empty date."
             )
 
-
         previous = load_memory(
             memory_file
         )
-
 
         print(
             f"Current release date: {date}"
@@ -780,7 +742,6 @@ def check_product(product):
             f"Previous release date: "
             f"{previous if previous else 'None'}"
         )
-
 
         # -------------------------------------------------
         # Detect a new release
@@ -793,27 +754,22 @@ def check_product(product):
                 "🚨 NEW PRODUCT CHANGE DETECTED!"
             )
 
-
             print(
                 f"Product: {name}"
             )
-
 
             print(
                 f"Release: {title}"
             )
 
-
             print(
                 f"Date: {date}"
             )
-
 
             print()
             print(
                 "Description:"
             )
-
 
             if description:
 
@@ -827,31 +783,88 @@ def check_product(product):
                     "No description available."
                 )
 
+            source_url = (
+                url
+                if name != "Canva"
+                else (
+                    "https://www.canva.com/newsroom/news/"
+                    "canva-prosuite-launch/"
+                )
+            )
 
             # Save the change into history.
-            save_change_history(
+            was_saved = save_change_history(
                 product_name=name,
                 title=title,
                 date=date,
-                source_url=(
-                    url
-                    if name != "Canva"
-                    else (
-                        "https://www.canva.com/newsroom/news/"
-                        "canva-prosuite-launch/"
-                    )
-                ),
+                source_url=source_url,
                 description=description
             )
 
+            # Run impact analysis when:
+            # 1) this is a new history record, or
+            # 2) the record already exists but does not yet have
+            #    an impact assessment.
+            existing_record = find_history_record(
+                product_name=name,
+                title=title,
+                date=date
+            )
+
+            needs_impact_assessment = (
+                was_saved
+                or not existing_record
+                or not existing_record.get("impact_assessment")
+            )
+
+            if needs_impact_assessment:
+
+                change_record = {
+                    "product": name,
+                    "title": title,
+                    "date": date,
+                    "source": source_url,
+                    "description": description
+                }
+
+                print()
+                print(
+                    "📊 Assessing potential impact on "
+                    "the fictional company..."
+                )
+
+                impact_assessment = assess_change_impact(
+                    change_record
+                )
+
+                print()
+                print(
+                    "📌 Fictional company impact:"
+                )
+                print(
+                    format_impact_assessment(
+                        impact_assessment
+                    )
+                )
+
+                update_history_with_impact(
+                    product_name=name,
+                    title=title,
+                    date=date,
+                    impact_assessment=impact_assessment
+                )
+
+                print()
+                print(
+                    "💾 Impact assessment saved to history."
+                )
 
             # Update memory only after successful detection
-            # and history saving.
+            # and history handling.
             save_memory(
                 memory_file,
                 date
             )
-
 
         else:
 
@@ -859,18 +872,15 @@ def check_product(product):
                 "✅ No new change."
             )
 
-
     except Exception as error:
 
         print(
             f"❌ Could not check {name}:"
         )
 
-
         print(
             error
         )
-
 
         # IMPORTANT:
         # If scraping fails, memory is NOT changed.
@@ -895,13 +905,11 @@ def main():
 
     print("=" * 60)
 
-
     for product in PRODUCTS:
 
         check_product(
             product
         )
-
 
     print()
 

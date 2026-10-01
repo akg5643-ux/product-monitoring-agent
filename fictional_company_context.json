@@ -1,0 +1,429 @@
+{
+  "source_workbook": "FictionalCompany_80pct_Similar_20pct_Different.xlsx",
+  "company_summary": {
+    "Company": "Fictional Company",
+    "Website": "https://fictionalcompany.example (fictional)",
+    "Category": "All-in-one digital workspace (design, docs, collaboration, AI, project management)",
+    "Target Customers": "Individuals, creators, marketing/design teams, project teams, and enterprises",
+    "Core Product": "A unified workspace combining design, documents, collaboration, AI content tools and project tracking in a single product family.",
+    "Key Differentiators": "Blends collaboration, design and AI patterns common across Figma/Notion/Canva (80% of capabilities), plus five original capabilities not offered by any of the three (voice-to-design generation, an offline-first sync engine, a cross-team sentiment dashboard, regulatory compliance templates, and a creator micro-licensing marketplace).",
+    "Similarity Note": "~80% structurally/feature similar to Figma/Notion/Canva patterns; ~20% original — see Similarity_Summary tab for the calculated split.",
+    "Source": "Fictional company specification (synthetic)"
+  },
+  "product_features": [
+    {
+      "Feature": "Real-Time Co-Editing",
+      "Category": "Collaboration",
+      "Description": "Multiple users edit the same document or design simultaneously with live cursors and changes.",
+      "Target User": "Individuals, creators and teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Figma multiplayer collaboration",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Templates Library",
+      "Category": "Content & Design",
+      "Description": "Large library of ready-made templates for social, presentation and marketing content.",
+      "Target User": "Creators, marketers and design teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Canva template library",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "AI Content Generation",
+      "Category": "AI & Automation",
+      "Description": "Generates on-brand images, copy and design variants from a text prompt.",
+      "Target User": "Creators, marketers and design teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Canva Magic Studio / Notion AI",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "AI Writing Assistant",
+      "Category": "AI & Automation",
+      "Description": "Drafts, rewrites, summarizes and translates text inline within documents.",
+      "Target User": "Individuals, creators and teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Notion AI / Canva Magic Write",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Brand Kit",
+      "Category": "Brand Management",
+      "Description": "Centralizes logos, fonts, colors and templates for consistent branded output.",
+      "Target User": "Creators, marketers and design teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Canva Brand Kit",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Presentation Builder",
+      "Category": "Content & Design",
+      "Description": "Creates slide decks using templates, shared assets and AI-generated content.",
+      "Target User": "Creators, marketers and design teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Canva Presentations / Figma Slides",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Document Workspace",
+      "Category": "Workspace",
+      "Description": "Pages and blocks for docs, notes and structured content in one workspace.",
+      "Target User": "Individuals, creators and teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Notion pages & blocks",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Task Management",
+      "Category": "Project Management",
+      "Description": "Databases and boards for tracking tasks, owners, and statuses.",
+      "Target User": "Project teams and managers",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Notion databases",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Project Dashboards",
+      "Category": "Project Management",
+      "Description": "Visual charts and dashboards summarizing project and workspace data.",
+      "Target User": "Project teams and managers",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Notion Charts",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "File Sharing",
+      "Category": "File Management",
+      "Description": "Share files and folders internally or via public links with permission controls.",
+      "Target User": "Individuals, creators and teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Common across Figma/Notion/Canva",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Comments and Mentions",
+      "Category": "Collaboration",
+      "Description": "Contextual comments and @mentions on documents, designs and tasks.",
+      "Target User": "Individuals, creators and teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Figma commenting",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Version History",
+      "Category": "File Management",
+      "Description": "Tracks and restores previous versions of documents and designs.",
+      "Target User": "Individuals, creators and teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Notion page history / Figma version history",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Search and Discovery",
+      "Category": "Productivity",
+      "Description": "Unified search across documents, designs, tasks and connected content.",
+      "Target User": "Individuals, creators and teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Notion Enterprise Search",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Workflow Automation",
+      "Category": "Automation",
+      "Description": "Rule-based automations that trigger actions on database or status changes.",
+      "Target User": "Project teams and managers",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Notion Database Automations",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Integrations",
+      "Category": "Integrations",
+      "Description": "Connects to common third-party apps such as Slack, Google Drive and Jira.",
+      "Target User": "Individuals, creators and teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Common across Figma/Notion/Canva",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Developer API",
+      "Category": "Developer Platform",
+      "Description": "Public API and webhooks for building custom integrations.",
+      "Target User": "Business and enterprise teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Figma API / Notion public API",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Admin Controls",
+      "Category": "Administration",
+      "Description": "Centralized administration for members, workspaces and settings.",
+      "Target User": "Business and enterprise teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Common across Figma/Notion/Canva",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Single Sign-On",
+      "Category": "Security",
+      "Description": "SAML-based SSO for enterprise identity providers.",
+      "Target User": "Business and enterprise teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "SSO tier common to Figma/Notion/Canva",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Role-Based Access",
+      "Category": "Security",
+      "Description": "Granular permissions by role across workspaces and content.",
+      "Target User": "Business and enterprise teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Common across Figma/Notion/Canva",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Cloud Storage",
+      "Category": "Infrastructure",
+      "Description": "Cloud-hosted storage for files, designs and documents with tiered limits.",
+      "Target User": "Individuals, creators and teams",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Common across Figma/Notion/Canva",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Voice-to-Design Generation",
+      "Category": "AI & Automation",
+      "Description": "Converts a spoken creative brief directly into a layered, editable design draft.",
+      "Target User": "Creators, marketers and design teams",
+      "Similarity Status": "Different",
+      "Modeled On / Basis": "Original — no equivalent in Figma/Notion/Canva",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Offline-First Sync Engine",
+      "Category": "Infrastructure",
+      "Description": "Full offline editing across documents, designs and tasks with automatic conflict-free merge on reconnect.",
+      "Target User": "Individuals, creators and teams",
+      "Similarity Status": "Different",
+      "Modeled On / Basis": "Original — addresses the 'no true offline mode' gap noted in Notion's customer feedback",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Cross-Team Sentiment Dashboard",
+      "Category": "Analytics",
+      "Description": "Aggregates comments and feedback across a workspace into a live team sentiment score.",
+      "Target User": "Managers and operations teams",
+      "Similarity Status": "Different",
+      "Modeled On / Basis": "Original — no equivalent in Figma/Notion/Canva",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Regulatory Compliance Templates",
+      "Category": "Content & Design",
+      "Description": "Pre-built templates and workflows aligned to industry compliance requirements (e.g. healthcare, finance).",
+      "Target User": "Regulated enterprises",
+      "Similarity Status": "Different",
+      "Modeled On / Basis": "Original — no equivalent in Figma/Notion/Canva",
+      "Source": "Fictional company product specification (synthetic)"
+    },
+    {
+      "Feature": "Creator Micro-Licensing Marketplace",
+      "Category": "Marketplace",
+      "Description": "Lets creators license individual design assets to other workspace users for a revenue share.",
+      "Target User": "Creators and freelancers",
+      "Similarity Status": "Different",
+      "Modeled On / Basis": "Original — no equivalent in Figma/Notion/Canva",
+      "Source": "Fictional company product specification (synthetic)"
+    }
+  ],
+  "pricing": [
+    {
+      "Plan Name": "Starter",
+      "Price (INR/month)": 0,
+      "Billing Basis": "Free, per user",
+      "Description": "Core workspace access with limited storage and limited AI usage.",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Free tier pattern common to Figma/Notion/Canva",
+      "Source": "Fictional company pricing specification (synthetic)"
+    },
+    {
+      "Plan Name": "Individual Pro",
+      "Price (INR/month)": 799,
+      "Billing Basis": "Per user / month",
+      "Description": "Advanced creation, collaboration, analytics and higher AI limits.",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Individual paid-tier pattern (Figma Professional / Canva Pro)",
+      "Source": "Fictional company pricing specification (synthetic)"
+    },
+    {
+      "Plan Name": "Team",
+      "Price (INR/month)": 649,
+      "Billing Basis": "Per user / month",
+      "Description": "Shared workspace, administration, collaboration and team analytics.",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Team-tier pattern (Notion Business / Canva Business)",
+      "Source": "Fictional company pricing specification (synthetic)"
+    },
+    {
+      "Plan Name": "Enterprise",
+      "Price (INR/month)": "Custom",
+      "Billing Basis": "Annual contract",
+      "Description": "Security, SSO, governance, onboarding, SLA and dedicated support.",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Enterprise-tier pattern common to Figma/Notion/Canva",
+      "Source": "Fictional company pricing specification (synthetic)"
+    },
+    {
+      "Plan Name": "Pay-per-Project Pass",
+      "Price (INR/month)": 249,
+      "Billing Basis": "One-time, per project",
+      "Description": "A single-use pass unlocking full features for one project with no recurring subscription.",
+      "Similarity Status": "Different",
+      "Modeled On / Basis": "Original — none of Figma/Notion/Canva offer a one-time per-project purchase option",
+      "Source": "Fictional company pricing specification (synthetic)"
+    }
+  ],
+  "customer_feedback": [
+    {
+      "Customer ID": "FC-C001",
+      "Segment": "Freelancer",
+      "Plan": "Pro",
+      "Rating (1-5)": 5,
+      "Sentiment": "Positive",
+      "Feedback": "Brings design, documents and AI tools into one workspace and cuts down tool switching.",
+      "Pain Point": "Learning the full workspace takes time.",
+      "Feature Mentioned": "Unified Workspace",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Echoes Master_Sheet theme: accessibility/speed of creation (Canva feedback)",
+      "Source": "Fictional company customer feedback (synthetic)"
+    },
+    {
+      "Customer ID": "FC-C002",
+      "Segment": "Startup Team",
+      "Plan": "Team",
+      "Rating (1-5)": 4,
+      "Sentiment": "Positive",
+      "Feedback": "Real-time collaboration is useful for distributed project work.",
+      "Pain Point": "More advanced workflow automation would help.",
+      "Feature Mentioned": "Real-Time Co-Editing",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Echoes Master_Sheet theme: real-time collaboration praise (Figma feedback)",
+      "Source": "Fictional company customer feedback (synthetic)"
+    },
+    {
+      "Customer ID": "FC-C003",
+      "Segment": "Marketing Team",
+      "Plan": "Team",
+      "Rating (1-5)": 5,
+      "Sentiment": "Positive",
+      "Feedback": "Templates and brand controls make campaign production noticeably faster.",
+      "Pain Point": "More niche industry templates are requested.",
+      "Feature Mentioned": "Templates Library",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Echoes Master_Sheet theme: template speed (Canva feedback)",
+      "Source": "Fictional company customer feedback (synthetic)"
+    },
+    {
+      "Customer ID": "FC-C004",
+      "Segment": "Student",
+      "Plan": "Starter",
+      "Rating (1-5)": 4,
+      "Sentiment": "Positive",
+      "Feedback": "The free plan is easy to start with and the interface is simple.",
+      "Pain Point": "Storage limits are noticeable on larger projects.",
+      "Feature Mentioned": "Cloud Storage",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Echoes Master_Sheet theme: freemium accessibility (Canva feedback)",
+      "Source": "Fictional company customer feedback (synthetic)"
+    },
+    {
+      "Customer ID": "FC-C005",
+      "Segment": "Design Lead",
+      "Plan": "Pro",
+      "Rating (1-5)": 5,
+      "Sentiment": "Positive",
+      "Feedback": "The shared workspace improves feedback cycles and version control.",
+      "Pain Point": "Advanced prototyping controls could be expanded.",
+      "Feature Mentioned": "Version History",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Echoes Master_Sheet theme: prototyping/collaboration depth (Figma feedback)",
+      "Source": "Fictional company customer feedback (synthetic)"
+    },
+    {
+      "Customer ID": "FC-C006",
+      "Segment": "Consulting Firm",
+      "Plan": "Enterprise",
+      "Rating (1-5)": 4,
+      "Sentiment": "Positive",
+      "Feedback": "Admin controls and centralized workspaces are valuable for managing multiple teams.",
+      "Pain Point": "Enterprise reporting could be deeper.",
+      "Feature Mentioned": "Admin Controls",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Echoes Master_Sheet theme: enterprise governance (common theme)",
+      "Source": "Fictional company customer feedback (synthetic)"
+    },
+    {
+      "Customer ID": "FC-C007",
+      "Segment": "Content Creator",
+      "Plan": "Pro",
+      "Rating (1-5)": 5,
+      "Sentiment": "Positive",
+      "Feedback": "AI assistance speeds up first drafts and content ideation.",
+      "Pain Point": "More control over AI output style is desired.",
+      "Feature Mentioned": "AI Content Generation",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Echoes Master_Sheet theme: AI-assisted creation (Canva/Notion feedback)",
+      "Source": "Fictional company customer feedback (synthetic)"
+    },
+    {
+      "Customer ID": "FC-C008",
+      "Segment": "Product Manager",
+      "Plan": "Team",
+      "Rating (1-5)": 4,
+      "Sentiment": "Positive",
+      "Feedback": "Dashboards and task views make project status easier to track.",
+      "Pain Point": "Additional integrations would improve workflow continuity.",
+      "Feature Mentioned": "Project Dashboards",
+      "Similarity Status": "Similar",
+      "Modeled On / Basis": "Echoes Master_Sheet theme: data-to-insight workflows (Notion feedback)",
+      "Source": "Fictional company customer feedback (synthetic)"
+    },
+    {
+      "Customer ID": "FC-C009",
+      "Segment": "Remote Field Team",
+      "Plan": "Team",
+      "Rating (1-5)": 5,
+      "Sentiment": "Positive",
+      "Feedback": "The offline sync engine finally let the team keep working during a week with no reliable internet, with nothing lost on reconnect.",
+      "Pain Point": "Initial offline setup wasn't obvious.",
+      "Feature Mentioned": "Offline-First Sync Engine",
+      "Similarity Status": "Different",
+      "Modeled On / Basis": "Original — no equivalent theme exists in Master_Sheet (directly contrasts Notion's documented 'no offline mode' pain point)",
+      "Source": "Fictional company customer feedback (synthetic)"
+    },
+    {
+      "Customer ID": "FC-C010",
+      "Segment": "Independent Illustrator",
+      "Plan": "Pro",
+      "Rating (1-5)": 3,
+      "Sentiment": "Mixed",
+      "Feedback": "The micro-licensing marketplace is a promising extra income stream, but payout thresholds and licensing terms need clearer documentation.",
+      "Pain Point": "Marketplace payout and licensing terms are confusing.",
+      "Feature Mentioned": "Creator Micro-Licensing Marketplace",
+      "Similarity Status": "Different",
+      "Modeled On / Basis": "Original — no equivalent theme exists in Master_Sheet",
+      "Source": "Fictional company customer feedback (synthetic)"
+    }
+  ],
+  "similarity_summary": {
+    "overall": {
+      "similar_count": 32,
+      "different_count": 8,
+      "total_records": 40,
+      "similarity_percent": 0.8,
+      "difference_percent": 0.2
+    }
+  },
+  "assessment_rule": "Use only the information in this file when assessing how a monitored product change may affect the fictional company and when proposing actions. Do not use outside knowledge about the fictional company."
+}
